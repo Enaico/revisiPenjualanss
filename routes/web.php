@@ -8,7 +8,8 @@ use App\Http\Controllers\{
     SuplierController,
     DashboardController,
     PembeliController,
-    PembelianController
+    PembelianController,
+    PenjualanController
 };
 
 Route::get('/', [DashboardController::class, 'index']);
@@ -38,6 +39,7 @@ Route::resource('/pembelian', PembelianController::class);
 Route::get('/pembelian/hapus/{id}', [PembelianController::class, 'destroy']);
 Route::get('/pembelian/edit/{id}', [PembelianController::class, 'edit']);
 
-Route::get('/penjualan', function () {
-    return view('penjualan.index');
-});
+// Route Penjualan
+Route::resource('/penjualan', PenjualanController::class);
+Route::get('/penjualan/hapus/{id}', [PenjualanController::class, 'destroy']);
+Route::get('/penjualan/edit/{id}', [PenjualanController::class, 'edit']);
